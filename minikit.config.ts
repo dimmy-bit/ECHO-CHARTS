@@ -1,4 +1,4 @@
-const ROOT_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+const ROOT_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://echo-charts.vercel.app';
 
 export const minikitConfig = {
   accountAssociation: {
