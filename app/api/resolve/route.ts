@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server';
 import { resolveAddress } from '@/lib/api/resolveAddress';
-import { isAddress, createPublicClient, http } from 'viem';
+import { isAddress, createPublicClient, http, type Address } from 'viem';
 import { base, mainnet } from 'viem/chains';
 
 const mainnetClient = createPublicClient({ chain: mainnet, transport: http() });
 const baseClient = createPublicClient({ chain: base, transport: http() });
 
-async function reverseResolve(address: string): Promise<string | null> {
+async function reverseResolve(address: Address): Promise<string | null> {
   try {
     const name = await mainnetClient.getEnsName({ address });
     if (name) return name;
@@ -39,6 +39,6 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: 'Invalid address' }, { status: 400 });
   }
 
-  const name = await reverseResolve(input);
+  const name = await reverseResolve(input as Address);
   return NextResponse.json({ address: input, name });
 }
