@@ -42,6 +42,10 @@ export default function Home() {
   const [resolvedDisplay, setResolvedDisplay] = useState<string | null>(null);
   const [contextAddress, setContextAddress] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
+  const hasMiniKitKey = Boolean(
+    process.env.NEXT_PUBLIC_CDP_CLIENT_API_KEY ||
+      process.env.NEXT_PUBLIC_ONCHAINKIT_API_KEY
+  );
 
   // If user connects wallet, we can default to it, but manual input overrides
   const activeAddress = connectedAddress || contextAddress || viewAddress;
@@ -90,7 +94,7 @@ export default function Home() {
   return (
     <div className="flex flex-col h-full">
       <Header />
-      {mounted && (
+      {mounted && hasMiniKitKey && (
         <>
           <MiniKitReady />
           <MiniKitAddressProvider onAddress={setContextAddress} />
