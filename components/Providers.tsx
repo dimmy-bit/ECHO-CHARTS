@@ -31,7 +31,7 @@ export function Providers({ children }: { children: ReactNode }) {
         <WagmiProvider config={config}>
             <QueryClientProvider client={queryClient}>
                 <OnchainKitProvider apiKey={apiKey} chain={base}>
-                    <MiniKitProvider>
+                    <MiniKitProvider enabled={Boolean(apiKey)}>
                         {children}
                     </MiniKitProvider>
                 </OnchainKitProvider>
