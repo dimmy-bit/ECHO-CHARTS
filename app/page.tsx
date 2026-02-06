@@ -11,8 +11,13 @@ function MiniKitAddressProvider({ onAddress }: { onAddress: (addr: string | null
   const { context } = useMiniKit();
 
   useEffect(() => {
-    onAddress(context?.user?.walletAddress || null);
-  }, [context?.user?.walletAddress, onAddress]);
+    const anyContext = context as unknown as { user?: { address?: string; wallet?: { address?: string } } };
+    const addr =
+      anyContext?.user?.address ||
+      anyContext?.user?.wallet?.address ||
+      null;
+    onAddress(addr);
+  }, [context, onAddress]);
 
   return null;
 }
