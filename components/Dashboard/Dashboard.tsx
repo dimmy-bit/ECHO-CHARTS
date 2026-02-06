@@ -25,7 +25,7 @@ export function Dashboard({ address }: { address: string }) {
     const avatarUrl = profileAvatar || `https://api.dicebear.com/8.x/identicon/png?seed=${encodeURIComponent(address)}`;
 
     const dappPalette = ['#1A73FF', '#8B5CF6', '#EC4899', '#F59E0B', '#10B981'];
-    const dappData = (stats?.dappUsage ?? []).map((item, idx) => ({
+    const dappData = (stats?.dappUsage ?? []).map((item: { name: string; value: number; category: string; iconText?: string }, idx) => ({
         name: item.name,
         value: item.value,
         color: dappPalette[idx % dappPalette.length],
@@ -33,7 +33,7 @@ export function Dashboard({ address }: { address: string }) {
         iconText: item.iconText || item.name.slice(0, 2).toUpperCase(),
     }));
 
-    const miniAppsData = (stats?.miniApps ?? []).map(app => ({
+    const miniAppsData = (stats?.miniApps ?? []).map((app: { appName: string; usageCount: number; category: string; deepLink?: string; address?: string }) => ({
         appName: app.appName,
         usageCount: app.usageCount,
         category: app.category,
