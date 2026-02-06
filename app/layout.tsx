@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   description: minikitConfig.miniapp.description,
   manifest: '/.well-known/farcaster.json',
   other: {
+    'base:app_id': '698553ab39ccfec3a7cd1e0b',
     'fc:frame': JSON.stringify({
       version: 'next',
       imageUrl: minikitConfig.miniapp.heroImageUrl,
