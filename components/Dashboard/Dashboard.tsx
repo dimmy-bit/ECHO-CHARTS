@@ -25,7 +25,7 @@ export function Dashboard({ address }: { address: string }) {
     const avatarUrl = profileAvatar || `https://api.dicebear.com/8.x/identicon/png?seed=${encodeURIComponent(address)}`;
 
     const dappPalette = ['#1A73FF', '#8B5CF6', '#EC4899', '#F59E0B', '#10B981'];
-    const dappData = (stats?.dappUsage ?? []).map((item: { name: string; value: number; category: string; iconText?: string }, idx) => ({
+    const dappData = (stats?.dappUsage ?? []).map((item: { name: string; value: number; category: string; iconText?: string }, idx: number) => ({
         name: item.name,
         value: item.value,
         color: dappPalette[idx % dappPalette.length],
