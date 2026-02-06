@@ -25,6 +25,9 @@
       "https://echo-charts.vercel.app/s3.png"
     ],
     "heroImageUrl": "https://echo-charts.vercel.app/cover.png",
+    "splashImageUrl": "https://echo-charts.vercel.app/splash.png",
+    "splashBackgroundColor": "#0A0A0A",
+    "primaryCategory": "analytics",
     "tagline": "Your Crypto Activity, Illustrated",
     "ogTitle": "ECHO CHARTS – My Web3 Year in Review",
     "ogDescription": "Check out my on-chain stats for 2025!",
