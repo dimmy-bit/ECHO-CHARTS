@@ -25,7 +25,7 @@ export function ProfileHeader({ address, onShare }: ProfileHeaderProps) {
   return (
     <div className="glass-panel p-3 rounded-2xl flex items-center justify-between gap-3">
       <div className="flex items-center gap-3">
-        <Identity address={address} className="flex items-center gap-3">
+        <Identity address={address as `0x${string}`} className="flex items-center gap-3">
           <Avatar className="h-10 w-10" />
           <div className="flex flex-col">
             <Name className="text-base font-semibold leading-tight" />
