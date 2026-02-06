@@ -22,7 +22,6 @@ export async function GET(request: NextRequest) {
           width: '100%',
           display: 'flex',
           flexDirection: 'column',
-          backgroundColor: '#0A0A0A',
           backgroundColor: '#1A73FF',
           backgroundImage: 'linear-gradient(135deg, #1A73FF 0%, #2E7BFF 45%, #0B4BD6 100%)',
           fontFamily: 'Inter, system-ui, sans-serif',
