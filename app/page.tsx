@@ -7,6 +7,8 @@ import { Header } from '@/components/Dashboard/Header';
 import { AddressInput } from '@/components/Dashboard/AddressInput';
 import { Dashboard } from '@/components/Dashboard/Dashboard';
 
+export const dynamic = 'force-dynamic';
+
 function MiniKitAddressProvider({ onAddress }: { onAddress: (addr: string | null) => void }) {
   const { context } = useMiniKit();
 
@@ -39,6 +41,7 @@ export default function Home() {
   const [viewAddress, setViewAddress] = useState<string | null>(null);
   const [resolvedDisplay, setResolvedDisplay] = useState<string | null>(null);
   const [contextAddress, setContextAddress] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
 
   // If user connects wallet, we can default to it, but manual input overrides
   const activeAddress = connectedAddress || contextAddress || viewAddress;
@@ -48,6 +51,10 @@ export default function Home() {
       setViewAddress(null);
     }
   }, [isConnected, connectedAddress]);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -83,10 +90,12 @@ export default function Home() {
   return (
     <div className="flex flex-col h-full">
       <Header />
-      <>
-        <MiniKitReady />
-        <MiniKitAddressProvider onAddress={setContextAddress} />
-      </>
+      {mounted && (
+        <>
+          <MiniKitReady />
+          <MiniKitAddressProvider onAddress={setContextAddress} />
+        </>
+      )}
 
       {!activeAddress ? (
         <AddressInput onSubmit={setViewAddress} />
