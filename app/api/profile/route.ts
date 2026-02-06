@@ -1,11 +1,11 @@
 import { NextResponse } from 'next/server';
-import { createPublicClient, http, isAddress } from 'viem';
+import { createPublicClient, http, isAddress, type Address } from 'viem';
 import { base, mainnet } from 'viem/chains';
 
 const mainnetClient = createPublicClient({ chain: mainnet, transport: http() });
 const baseClient = createPublicClient({ chain: base, transport: http() });
 
-async function resolveName(address: string) {
+async function resolveName(address: Address) {
   try {
     const name = await mainnetClient.getEnsName({ address });
     if (name) return name;
@@ -44,7 +44,7 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: 'Invalid address' }, { status: 400 });
   }
 
-  const name = await resolveName(address);
+  const name = await resolveName(address as Address);
   const avatar = name ? await resolveAvatar(name) : null;
 
   return NextResponse.json({
