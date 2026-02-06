@@ -52,7 +52,7 @@ export function Dashboard({ address }: { address: string }) {
                         365;
         const cutoff = new Date();
         cutoff.setDate(cutoff.getDate() - days);
-        const data = daily.filter(point => {
+        const data = daily.filter((point: { date: string; count: number }) => {
             const date = new Date(point.date);
             return date >= cutoff;
         });
