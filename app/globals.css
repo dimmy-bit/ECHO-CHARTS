@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #050505;
+  --color-foreground: #eeeeee;
+  --color-card: #111111;
+  --color-primary: #1A73FF;
+  --color-secondary: #00FFF0;
+  --color-accent: #BD00FF;
+  --color-muted: #888888;
+  --color-border: #333333;
+}
+
+:root {
+  --background: #050505;
+  --foreground: #eeeeee;
+  --card: #111111;
+  --primary: #1A73FF;
+  --secondary: #00FFF0;
+  --accent: #BD00FF;
+  --muted: #888888;
+  --border: #333333;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(0, 82, 255, 0.2), transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(189, 0, 255, 0.15), transparent 45%);
+  }
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: rgba(17, 17, 17, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mini-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.mini-scroll::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.neon-border {
+  box-shadow: 0 0 10px rgba(0, 82, 255, 0.3);
+  border: 1px solid rgba(0, 82, 255, 0.5);
+}
+
+.neon-text {
+  text-shadow: 0 0 10px rgba(0, 82, 255, 0.5);
+}

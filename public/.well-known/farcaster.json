@@ -1,0 +1,34 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjkxOTk1NCwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDk4ZTYzRENBNjE5ZTk4NTk3MjE2RjA1ZDU1NTFhRTdFMTJDMjU5MjYifQ",
+    "payload": "eyJkb21haW4iOiJlY2hvLWNoYXJ0cy52ZXJjZWwuYXBwIn0",
+    "signature": "MHg1ZDhi..."
+  },
+  "miniapp": {
+    "version": "1",
+    "name": "ECHO CHARTS",
+    "description": "Visual tracker of your on-chain activity with daily/weekly charts.",
+    "iconUrl": "https://echo-charts.vercel.app/icon.png",
+    "homeUrl": "https://echo-charts.vercel.app",
+    "canonicalDomain": "echo-charts.vercel.app",
+    "requiredChains": [
+      "eip155:8453"
+    ],
+    "tags": [
+      "analytics",
+      "crypto",
+      "personal"
+    ],
+    "screenshotUrls": [
+      "https://echo-charts.vercel.app/s1.png",
+      "https://echo-charts.vercel.app/s2.png",
+      "https://echo-charts.vercel.app/s3.png"
+    ],
+    "heroImageUrl": "https://echo-charts.vercel.app/cover.png",
+    "tagline": "Your Crypto Activity, Illustrated",
+    "ogTitle": "ECHO CHARTS – My Web3 Year in Review",
+    "ogDescription": "Check out my on-chain stats for 2025!",
+    "ogImageUrl": "https://echo-charts.vercel.app/cover.png",
+    "noindex": false
+  }
+}
