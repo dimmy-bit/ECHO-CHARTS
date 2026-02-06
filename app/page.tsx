@@ -22,6 +22,18 @@ function MiniKitAddressProvider({ onAddress }: { onAddress: (addr: string | null
   return null;
 }
 
+function MiniKitReady() {
+  const { setFrameReady, isFrameReady } = useMiniKit();
+
+  useEffect(() => {
+    if (!isFrameReady) {
+      setFrameReady();
+    }
+  }, [isFrameReady, setFrameReady]);
+
+  return null;
+}
+
 export default function Home() {
   const { address: connectedAddress, isConnected } = useAccount();
   const [viewAddress, setViewAddress] = useState<string | null>(null);
@@ -77,7 +89,12 @@ export default function Home() {
   return (
     <div className="flex flex-col h-full">
       <Header />
-      {enableMiniKit && <MiniKitAddressProvider onAddress={setContextAddress} />}
+      {enableMiniKit && (
+        <>
+          <MiniKitReady />
+          <MiniKitAddressProvider onAddress={setContextAddress} />
+        </>
+      )}
 
       {!activeAddress ? (
         <AddressInput onSubmit={setViewAddress} />
