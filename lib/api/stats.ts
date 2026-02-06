@@ -78,7 +78,7 @@ function buildTokenRewards(tokenTxs: TokenTransaction[], user: string): TokenRew
     bySymbol.set(symbol, { count: current.count + 1, name: current.name || tx.tokenName || undefined });
   });
   return Array.from(bySymbol.entries())
-    .sort((a, b) => b[1] - a[1])
+    .sort((a, b) => b[1].count - a[1].count)
     .slice(0, 3)
     .map(([symbol, data]) => ({ symbol, count: data.count, name: data.name }));
 }
